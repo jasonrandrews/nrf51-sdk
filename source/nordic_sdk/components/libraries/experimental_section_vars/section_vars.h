@@ -94,7 +94,8 @@
 
 #elif defined __GNUC__
 
-#define NRF_SECTION_VARS_START_SYMBOL(section_name)         __start_ ## section_name
+//#define NRF_SECTION_VARS_START_SYMBOL(section_name)         __start_ ## section_name
+#define NRF_SECTION_VARS_START_SYMBOL(section_name)          section_name ## $$Base
 
 #elif defined __ICCARM__
 
@@ -120,7 +121,8 @@
 
 #elif defined __GNUC__
 
-#define NRF_SECTION_VARS_END_SYMBOL(section_name)           __stop_ ## section_name
+//#define NRF_SECTION_VARS_END_SYMBOL(section_name)           __stop_ ## section_name
+#define NRF_SECTION_VARS_END_SYMBOL(section_name)           section_name ## $$Limit
 
 #elif defined __ICCARM__
 
